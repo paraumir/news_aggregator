@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Aggregator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Новости</h1>
+            <div id="search-section">
+                <input type="text" id="search-title" placeholder="Поиск по новости">
+                <input type="text" id="search-category" placeholder="Поиск по категории">
+                <button onclick="loadNews()">Поиск</button>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <aside id="left-sidebar">
+            <div id="currency-container">
+                <h2>Курсы валют</h2>
+                <div id="currency-rates">
+                    <p>USD: <span id="usd-rate">Загрузка...</span></p>
+                    <p>EUR: <span id="eur-rate">Загрузка...</span></p>
+                </div>
+                <a href="https://www.cbr.ru/currency_base/daily/" target="_blank">Источник: ЦБРФ</a>
+                
+            </div>
+        </aside>
+        <div id="news-container"></div>
+        <aside id="right-sidebar">
+            <div id="add-news-section" style="display: none;">
+                <form id="add-news-form">
+                    <h3>Добавить новость</h3>
+                    <input id="title" type="text" placeholder="Заголовок" required />
+                    <textarea id="content" placeholder="Контент" required></textarea>
+                    <input id="category" type="text" placeholder="Категория (опционально)" />
+                    <button type="submit">Добавить</button>
+                </form>
+            </div>
+            <div id="edit-modal" class="modal">
+                <div class="modal-content">
+                    <h2>Редактировать новость</h2>
+                    <label for="edit-title">Заголовок:</label>
+                    <input type="text" id="edit-title" required>
+        
+                    <label for="edit-content">Содержание:</label>
+                    <textarea id="edit-content" required></textarea>
+        
+                    <label for="edit-category">Категория:</label>
+                    <input type="text" id="edit-category">
+        
+                    <button id="save-edit">Сохранить изменения</button>
+                    <button id="close-edit">Закрыть</button>
+                </div>
+            </div>
+
+            <form id="login-form">
+                <div class="login-field">
+                    <label for="login-username">Логин</label>
+                    <input type="text" id="login-username" placeholder="Имя пользователя" required>
+                </div>
+                <div class="login-field">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" placeholder="Пароль" required>
+                </div>
+                <button type="submit">Вход</button>
+            </form>
+        </aside>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
